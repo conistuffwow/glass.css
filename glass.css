@@ -35,47 +35,58 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-    .container {
+        .container {
+            color: white;
+        background-color: black;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 1rem;
+        box-sizing: border-box;
+        border-radius: 16px;
+    }
+
+    .container.glass {
+        background: rgba(0,0,0,0.5);
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 1rem;
+        box-sizing: border-box;
+        border-radius: 16px;
+    }
+    button.glass {
+        background: #3b82f6;
         color: white;
-    background-color: black;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 1rem;
-    box-sizing: border-box;
-    border-radius: 16px;
-}
+        border: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: 12px;
+        font-weight: 600;
+        font-family: inherit;
+        font-size: 1rem;
 
-.container.glass {
-    background: rgba(0,0,0,0.5);
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 1rem;
-    box-sizing: border-box;
-    border-radius: 16px;
-}
-button.glass {
-    background: #3b82f6;
-    color: white;
-    border: none;
-    padding: 0.6rem 1.2rem;
-    border-radius: 12px;
-    font-weight: 600;
-    font-family: inherit;
-    font-size: 1rem;
-
-    transition: all 0.25s ease;
-    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
-}
-button.glass:hover {
-    transform: scale(1.1);
-    background: rgba(59, 130, 246, 0.2);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255,255,255,0.3);
-    color: white;
-}
+        transition: all 0.25s ease;
+        box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+    }
+    button.glass:hover {
+        transform: scale(1.1);
+        background: rgba(59, 130, 246, 0.2);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255,255,255,0.3);
+        color: white;
+    }
+    .panel {
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 16px;
+        padding: 1.5rem;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        border: 1px solid rgba(255,255,255,0.2);
+        color: inherit;
+        transition: transform 0.2s ease;
+    }
 }
 
 .container.full {
@@ -239,7 +250,7 @@ button.glass:hover {
     right: 0;
     padding: 1rem 2rem;
     display: flex;
-    justify-content: right;
+    justify-content: left;
     gap: 1rem;
     z-index: 1000;
     background: transparent;
@@ -274,4 +285,77 @@ button.glass:hover {
 .toolbar-item:hover {
     transform: scale(1.1);
     background: rgba(255,255,255,0.25);
+}
+
+.stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.panel {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: inherit;
+    transition: transform 0.2s ease;
+}
+
+.panel:hover {
+    transform: translateY(-4px);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.split {
+    display: flex;
+    flex-direction: row;
+    height: 50%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.split > .panel {
+    flex: 1 1 0;
+    padding: 1.5rem;
+    margin: 1rem;
+    border-radius: 16px;
+    min-width: 300px;
+}
+
+.toolbar-title {
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
 }
